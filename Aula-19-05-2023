@@ -1,0 +1,29 @@
+.data
+
+idade: .word 19				# "word" declara que é global
+eh_maior: .word 0
+strmaior: .asciiz "é maior de idade" 	# ".asciiz = printar"
+strmenor: .asciiz "é menor de idade" 	# "asciiz = z significa zero"
+					# para mostrar a msg precisa usar ""
+
+.text
+
+	lw $a0, idade		# "lw" para adicionar em variavel global
+	blt $a0, 18, menor	# "blt" para comparação
+	
+maior:
+	li $t0, 1		# "li" para variavel local
+	sw $t0, eh_maior	# "sw" salvar na variavel global
+	li $v0, 4
+	la $a0, strmaior
+	syscall
+	b fim			# "b" pula para a prox parte do codigo
+	
+menor:
+	li $t0, 2
+	sw $t0, eh_maior
+	li $v0, 4
+	la $a0, strmenor
+	syscall
+fim:
+	
