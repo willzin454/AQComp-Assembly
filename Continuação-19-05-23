@@ -1,0 +1,12 @@
+.data
+
+v_de_bytes: .byte 6 10 33 2
+
+vetor: .word 30 1 2 3 4 5 6 7 8 9 153 
+
+newline: .asciiz "\n"
+
+# &vetor[0] = vetor
+# &vetor[1] = vetor + 4
+# &vetor[2] = vetor + 8
+	# o endereço tem quer fazer em multiplos de 4, pois cada valor ocupa 4 bytes
